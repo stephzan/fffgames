@@ -22,6 +22,7 @@ class NewsController extends AbstractController
     {
         $user = $this->getUser();
         var_export($user);
+
         return $this->render('news/index.html.twig', ['news' => $newsRepository->findAll()]);
     }
 

@@ -7,7 +7,6 @@ use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
-
 class UserController extends AbstractController
 {
     /**
@@ -25,11 +24,10 @@ class UserController extends AbstractController
      */
     public function setAdmin(UserRepository $userRep)
     {
-        
-    	$u = new User();
-    	$user = $userRep->find(1);
-    	$user->setRoles(array("ROLE_ADMIN"));
-    	$userRep->save($user);
+        $u = new User();
+        $user = $userRep->find(1);
+        $user->setRoles(['ROLE_ADMIN']);
+        $userRep->save($user);
 
         return $this->render('user/index.html.twig', [
             'controller_name' => 'UserController',

@@ -1,0 +1,25 @@
+#center-form{
+	position: relative;
+	width: 40%;
+	height: 65%;
+	background-color: #fff;
+	margin: auto;
+	margin-top:12%;
+}
+
+#welcome-message{
+	height: 25%;
+}
+#login-form{
+	text-align: center;
+	height: 50%;
+}
+#login-social{
+	height: 25%;
+}
+
+.login-row{
+	position: relative;
+	width: 100%;	
+	border-bottom: 1px solid black;
+}

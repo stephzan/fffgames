@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Steph index{% endblock %}
+
+{% block body %}
+    <h1>Steph index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for steph in stephs %}
+            <tr>
+                <td>{{ steph.id }}</td>
+                <td>{{ steph.name }}</td>
+                <td>{{ steph.age }}</td>
+                <td>
+                    <a href="{{ path('steph_show', {'id': steph.id}) }}">show</a>
+                    <a href="{{ path('steph_edit', {'id': steph.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('steph_new') }}">Create new</a>
+{% endblock %}

@@ -2,17 +2,30 @@
 
 {% block title %}{{ page_title }}{% endblock %}
 
+{% block stylesheets %}
+	{{ parent() }}
+
+	<link rel="stylesheet" href="{{ asset('css/register.css') }}" />
+
+{% endblock %}
+
 {% block body %}
-	{% if error %}
-        <div class="alert alert-danger">{{ error }}</div>
-    {% endif %}
+<div id="center-form">
+	<div id="welcome-message" class="register-row"></div>
+	<div id="register-form" class="register-row">
+		{% if error %}
+	        <div class="alert alert-danger">{{ error }}</div>
+	    {% endif %}
 
-	{{ form_start(form) }}
-	    {{ form_row(form.username) }}
-	    {{ form_row(form.email) }}
-	    {{ form_row(form.plainPassword.first) }}
-	    {{ form_row(form.plainPassword.second) }}
+		{{ form_start(form) }}
+		    {{ form_row(form.username) }}
+		    {{ form_row(form.email) }}
+		    {{ form_row(form.plainPassword.first) }}
+		    {{ form_row(form.plainPassword.second) }}
 
-	    <button type="submit">Register!</button>
-	{{ form_end(form) }}
+		    <button type="submit">Register!</button>
+		{{ form_end(form) }}
+	</div>
+	<div id="register-social" class="register-row"></div>
+</div>
 {% endblock %}

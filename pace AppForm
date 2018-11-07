@@ -1,0 +1,363 @@
+warning: LF will be replaced by CRLF in .gitignore.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in composer.json.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in composer.lock.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in config/bundles.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in config/packages/twig.yaml.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/Controller/HomeController.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/Controller/NewsController.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/Controller/RegistrationController.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/Controller/UserController.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/Entity/User.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/Form/UserType.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/Migrations/Version20181105100648.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/Migrations/Version20181105102319.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/Migrations/Version20181105110318.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/Migrations/Version20181105110426.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/Repository/UserRepository.php.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in symfony.lock.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in templates/base.html.twig.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in templates/registration/register.html.twig.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in templates/security/login.html.twig.
+The file will have its original line endings in your working directory
+[1mdiff --git a/.gitignore b/.gitignore[m
+[1mindex 947e45b..81b1987 100644[m
+[1m--- a/.gitignore[m
+[1m+++ b/.gitignore[m
+[36m@@ -21,3 +21,15 @@[m
+ npm-debug.log[m
+ yarn-error.log[m
+ ###< symfony/webpack-encore-pack ###[m
+[32m+[m
+[32m+[m[32m###> friendsofphp/php-cs-fixer ###[m
+[32m+[m[32m/.php_cs[m
+[32m+[m[32m/.php_cs.cache[m
+[32m+[m[32m###< friendsofphp/php-cs-fixer ###[m
+[32m+[m
+[32m+[m[32m###> symfony/webpack-encore-bundle ###[m
+[32m+[m[32m/node_modules/[m
+[32m+[m[32m/public/build/[m
+[32m+[m[32mnpm-debug.log[m
+[32m+[m[32myarn-error.log[m
+[32m+[m[32m###< symfony/webpack-encore-bundle ###[m
+[1mdiff --git a/composer.json b/composer.json[m
+[1mindex 9c49ef0..b61e5d1 100644[m
+[1m--- a/composer.json[m
+[1m+++ b/composer.json[m
+[36m@@ -5,10 +5,12 @@[m
+         "php": "^7.1.3",[m
+         "ext-ctype": "*",[m
+         "ext-iconv": "*",[m
+[32m+[m[32m        "friendsofphp/php-cs-fixer": "^2.13",[m
+         "sensio/framework-extra-bundle": "^5.2",[m
+         "symfony/asset": "*",[m
+         "symfony/console": "*",[m
+         "symfony/expression-language": "*",[m
+[32m+[m[32m        "symfony/finder": "*",[m
+         "symfony/flex": "^1.1",[m
+         "symfony/form": "*",[m
+         "symfony/framework-bundle": "*",[m
+[36m@@ -22,6 +24,7 @@[m
+         "symfony/twig-bundle": "*",[m
+         "symfony/validator": "*",[m
+         "symfony/web-link": "*",[m
+[32m+[m[32m        "symfony/webpack-encore-bundle": "^1.0",[m
+         "symfony/webpack-encore-pack": "^1.0",[m
+         "symfony/yaml": "*"[m
+     },[m
+[1mdiff --git a/composer.lock b/composer.lock[m
+[1mindex 43b2ee6..3f68fb9 100644[m
+[1m--- a/composer.lock[m
+[1m+++ b/composer.lock[m
+[36m@@ -4,8 +4,114 @@[m
+         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",[m
+         "This file is @generated automatically"[m
+     ],[m
+[31m-    "content-hash": "8d113ce6e3ad92079d7b5f7017db9f86",[m
+[32m+[m[32m    "content-hash": "e6d679b5dfe2b9f93f896ba61780c1a6",[m
+     "packages": [[m
+[32m+[m[32m        {[m
+[32m+[m[32m            "name": "composer/semver",[m
+[32m+[m[32m            "version": "1.4.2",[m
+[32m+[m[32m            "source": {[m
+[32m+[m[32m                "type": "git",[m
+[32m+[m[32m                "url": "https://github.com/composer/semver.git",[m
+[32m+[m[32m                "reference": "c7cb9a2095a074d131b65a8a0cd294479d785573"[m
+[32m+[m[32m            },[m
+[32m+[m[32m            "dist": {[m
+[32m+[m[32m                "type": "zip",[m
+[32m+[m[32m                "url": "https://api.github.com/repos/composer/semver/zipball/c7cb9a2095a074d131b65a8a0cd294479d785573",[m
+[32m+[m[32m                "reference": "c7cb9a2095a074d131b65a8a0cd294479d785573",[m
+[32m+[m[32m                "shasum": ""[m
+[32m+[m[32m            },[m
+[32m+[m[32m            "require": {[m
+[32m+[m[32m                "php": "^5.3.2 || ^7.0"[m
+[32m+[m[32m            },[m
+[32m+[m[32m            "require-dev": {[m
+[32m+[m[32m                "phpunit/phpunit": "^4.5 || ^5.0.5",[m
+[32m+[m[32m                "phpunit/phpunit-mock-objects": "2.3.0 || ^3.0"[m
+[32m+[m[32m            },[m
+[32m+[m[32m            "type": "library",[m
+[32m+[m[32m            "extra": {[m
+[32m+[m[32m                "branch-alias": {[m
+[32m+[m[32m                    "dev-master": "1.x-dev"[m
+[32m+[m[32m                }[m
+[32m+[m[32m            },[m
+[32m+[m[32m            "autoload": {[m
+[32m+[m[32m                "psr-4": {[m
+[32m+[m[32m                    "Composer\\Semver\\": "src"[m
+[32m+[m[32m                }[m
+[32m+[m[32m            },[m
+[32m+[m[32m            "notification-url": "https://packagist.org/downloads/",[m
+[32m+[m[32m            "license": [[m
+[32m+[m[32m                "MIT"[m
+[32m+[m[32m            ],[m
+[32m+[m[32m            "authors": [[m
+[32m+[m[32m                {[m
+[32m+[m[32m                    "name": "Nils Adermann",[m
+[32m+[m[32m                    "email": "naderman@naderman.de",[m
+[32m+[m[32m                    "homepage": "http://www.naderman.de"[m
+[32m+[m[32m                },[m
+[32m+[m[32m                {[m
+[32m+[m[32m                    "name": "Jordi Boggiano",[m
+[32m+[m[32m                    "email": "j.boggiano@seld.be",[m
+[32m+[m[32m                    "homepage": "http://seld.be"[m
+[32m+[m[32m                },[m
+[32m+[m[32m                {[m
+[32m+[m[32m                    "name": "Rob Bast",[m
+[32m+[m[32m                    "email": "rob.bast@gmail.com",[m
+[32m+[m[32m                    "homepage": "http://robbast.nl"[m
+[32m+[m[32m                }[m
+[32m+[m[32m            ],[m
+[32m+[m[32m            "description": "Semver library that offers utilities, version constraint parsing and validation.",[m
+[32m+[m[32m            "keywords": [[m
+[32m+[m[32m                "semantic",[m
+[32m+[m[32m                "semver",[m
+[32m+[m[32m                "validation",[m
+[32m+[m[32m                "versioning"[m
+[32m+[m[32m            ],[m
+[32m+[m[32m            "time": "2016-08-30T16:08:34+00:00"[m
+[32m+[m[32m        },[m
+[32m+[m[32m        {[m
+[32m+[m[32m            "name": "composer/xdebug-handler",[m
+[32m+[m[32m            "version": "1.3.0",[m
+[32m+[m[32m            "source": {[m
+[32m+[m[32m                "type": "git",[m
+[32m+[m[32m                "url": "https://github.com/composer/xdebug-handler.git",[m
+[32m+[m[32m                "reference": "b8e9745fb9b06ea6664d8872c4505fb16df4611c"[m
+[32m+[m[32m            },[m
+[32m+[m[32m            "dist": {[m
+[32m+[m[32m                "type": "zip",[m
+[32m+[m[32m                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/b8e9745fb9b06ea6664d8872c4505fb16df4611c",[m
+[32m+[m[32m                "reference": "b8e9745fb9b06ea6664d8872c4505fb16df4611c",[m
+[32m+[m[32m                "shasum": ""[m
+[32m+[m[32m            },[m
+[32m+[m[32m            "require": {[m
+[32m+[m[32m                "php": "^5.3.2 || ^7.0",[m
+[32m+[m[32m                "psr/log": "^1.0"[m
+[32m+[m[32m            },[m
+[32m+[m[32m            "require-dev": {[m
+[32m+[m[32m                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.5"[m
+[32m+[m[32m            },[m
+[32m+[m[32m            "type": "library",[m
+[32m+[m[32m            "autoload": {[m
+[32m+[m[32m                "psr-4": {[m
+[32m+[m[32m                    "Composer\\XdebugHandler\\": "src"[m
+[32m+[m[32m                }[m
+[32m+[m[32m            },[m
+[32m+[m[32m            "notification-url": "https://packagist.org/downloads/",[m
+[32m+[m[32m            "license": [[m
+[32m+[m[32m                "MIT"[m
+[32m+[m[32m            ],[m
+[32m+[m[32m            "authors": [[m
+[32m+[m[32m                {[m
+[32m+[m[32m                    "name": "John Stevenson",[m
+[32m+[m[32m                    "email": "john-stevenson@blueyonder.co.uk"[m
+[32m+[m[32m                }[m
+[32m+[m[32m            ],[m
+[32m+[m[32m            "description": "Restarts a process without xdebug.",[m
+[32m+[m[32m            "keywords": [[m
+[32m+[m[32m                "Xdebug",[m
+[32m+[m[32m                "performance"[m
+[32m+[m[32m            ],[m
+[32m+[m[32m            "time": "2018-08-31T19:07:57+00:00"[m
+[32m+[m[32m        },[m
+         {[m
+             "name": "doctrine/annotations",[m
+             "version": "v1.6.0",[m
+[36m@@ -1281,6 +1387,97 @@[m
+             ],[m
+             "time": "2016-10-17T18:31:11+00:00"[m
+         },[m
+[32m+[m[32m        {[m
+[32m+[m[32m            "name": "friendsofphp/php-cs-fixer",[m
+[32m+[m[32m            "version": "v2.13.1",[m
+[32m+[m[32m            "source": {[m
+[32m+[m[32m                "type": "git",[m
+[32m+[m[32m                "url": "https://github.com/FriendsOfPHP/PHP-CS-Fixer.git",[m
+[32m+[m[32m                "reference": "54814c62d5beef3ba55297b9b3186ed8b8a1b161"[m
+[32m+[m[32m            },[m
+[32m+[m[32m            "dist": {[m
+[32m+[m[32m                "type": "zip",[m
+[32m+[m[32m                "url": "https://api.github.com/repos/FriendsOfPHP/PHP-CS-Fixer/zipball/54814c62d5beef3ba55297b9b3186ed8b8a1b161",[m
+[32m+[m[32m                "reference": "54814c62d5beef3ba55297b9b3186ed8b8a1b161",[m
+[32m+[m[32m                "shasum": ""[m
+[32m+[m[32m            },[m
+[32m+[m[32m            "require": {[m
+[32m+[m[32m                "composer/semver": "^1.4",[m
+[32m+[m[32m                "composer/xdebug-handler": "^1.2",[m
+[32m+[m[32m                "doctrine/annotations": "^1.2",[m
+[32m+[m[32m                "ext-json": "*",[m
+[32m+[m[32m                "ext-tokenizer": "*",[m
+[32m+[m[32m                "php": "^5.6 || >=7.0 <7.3",[m
+[32m+[m[32m                "php-cs-fixer/diff": "^1.3",[m
+[32m+[m[32m                "symfony/console": "^3.4.17 || ^4.1.6",[m
+[32m+[m[32m                "symfony/event-dispatcher": "^3.0 || ^4.0",[m
+[32m+[m[32m                "symfony/filesystem": "^3.0 || ^4.0",[m
+[32m+[m[32m                "symfony/finder": "^3.0 || ^4.0",[m
+[32m+[m[32m                "symfony/options-resolver": "^3.0 || ^4.0",[m
+[32m+[m[32m                "symfony/polyfill-php70": "^1.0",[m
+[32m+[m[32m                "symfony/polyfill-php72": "^1.4",[m
+[32m+[m[32m                "symfony/process": "^3.0 || ^4.0",[m
+[32m+[m[32m                "symfony/stopwatch": "^3.0 || ^4.0"[m
+[32m+[m[32m            },[m
+[32m+[m[32m            "conflict": {[m
+[32m+[m[32m                "hhvm": "*"[m
+[32m+[m[32m            },[m
+[32m+[m[32m            "require-dev": {[m
+[32m+[m[32m                "johnkary/phpunit-speedtrap": "^1.1 || ^2.0 || ^3.0",[m
+[32m+[m[32m                "justinrainbow/json-schema": "^5.0",[m
+[32m+[m[32m                "keradus/cli-executor": "^1.1",[m
+[32m+[m[32m                "mikey179/vfsstream": "^1.6",[m
+[32m+[m[32m                "php-coveralls/php-coveralls": "^2.1",[m
+[32m+[m[32m                "php-cs-fixer/accessible-object": "^1.0",[m
+[32m+[m[32m                "php-cs-fixer/phpunit-constraint-isidenticalstring": "^1.0.1",[m
+[32m+[m[32m                "php-cs-fixer/phpunit-constraint-xmlmatchesxsd": "^1.0.1",[m
+[32m+[m[32m                "phpunit/phpunit": "^5.7.27 || ^6.5.8 || ^7.1",[m
+[32m+[m[32m                "phpunitgoodpractices/traits": "^1.5.1",[m
+[32m+[m[32m                "symfony/phpunit-bridge": "^4.0"[m
+[32m+[m[32m            },[m
+[32m+[m[32m            "suggest": {[m
+[32m+[m[32m                "ext-mbstring": "For handling non-UTF8 characters in cache signature.",[m
+[32m+[m[32m                "php-cs-fixer/phpunit-constraint-isidenticalstring": "For IsIdenticalString constraint.",[m
+[32m+[m[32m                "php-cs-fixer/phpunit-constraint-xmlmatchesxsd": "For XmlMatchesXsd constraint.",[m
+[32m+[m[32m                "symfony/polyfill-mbstring": "When enabling `ext-mbstring` is not possible."[m
+[32m+[m[32m            },[m
+[32m+[m[32m            "bin": [[m
+[32m+[m[32m                "php-cs-fixer"[m
+[32m+[m[32m            ],[m
+[32m+[m[32m            "type": "application",[m
+[32m+[m[32m            "autoload": {[m
+[32m+[m[32m                "psr-4": {[m
+[32m+[m[32m                    "PhpCsFixer\\": "src/"[m
+[32m+[m[32m                },[m
+[32m+[m[32m                "classmap": [[m
+[32m+[m[32m                    "tests/Test/AbstractFixerTestCase.php",[m
+[32m+[m[32m                    "tests/Test/AbstractIntegrationCaseFactory.php",[m
+[32m+[m[32m                    "tests/Test/AbstractIntegrationTestCase.php",[m
+[32m+[m[32m                    "tests/Test/Assert/AssertTokensTrait.php",[m
+[32m+[m[32m                    "tests/Test/IntegrationCase.php",[m
+[32m+[m[32m                    "tests/Test/IntegrationCaseFactory.php",[m
+[32m+[m[32m                    "tests/Test/IntegrationCaseFactoryInterface.php",[m
+[32m+[m[32m                    "tests/Test/InternalIntegrationCaseFactory.php",[m
+[32m+[m[32m                    "tests/TestCase.php"[m
+[32m+[m[32m                ][m
+[32m+[m[32m            },[m
+[32m+[m[32m            "notification-url": "https://packagist.org/downloads/",[m
+[32m+[m[32m            "license": [[m
+[32m+[m[32m                "MIT"[m
+[32m+[m[32m            ],[m
+[32m+[m[32m            "authors": [[m
+[32m+[m[32m                {[m
+[32m+[m[32m                    "name": "Dariusz Rumiński",[m
+[32m+[m[32m                    "email": "dariusz.ruminski@gmail.com"[m
+[32m+[m[32m                },[m
+[32m+[m[32m                {[m
+[32m+[m[32m                    "name": "Fabien Potencier",[m
+[32m+[m[32m                    "email": "fabien@symfony.com"[m
+[32m+[m[32m                }[m
+[32m+[m[32m            ],[m
+[32m+[m[32m            "description": "A tool to automatically fix PHP code style",[m
+[32m+[m[32m            "time": "2018-10-21T00:32:10+00:00"[m
+[32m+[m[32m        },[m
+         {[m
+             "name": "jdorn/sql-formatter",[m
+             "version": "v1.2.17",[m
+[36m@@ -1527,6 +1724,57 @@[m
+             ],[m
+             "time": "2017-05-04T11:12:50+00:00"[m
+         },[m
+[32m+[m[32m        {[m
+[32m+[m[32m            "name": "php-cs-fixer/diff",[m
+[32m+[m[32m            "version": "v1.3.0",[m
+[32m+[m[32m            "source": {[m
+[32m+[m[32m                "type": "git",[m
+[32m+[m[32m                "url": "https://github.com/PHP-CS-Fixer/diff.git",[m
+[32m+[m[32m                "reference": "78bb099e9c16361126c86ce82ec4405ebab8e756"[m
+[32m+[m[32m            },[m
+[32m+[m[32m            "dist": {[m
+[32m+[m[32m                "type": "zip",[m
+[32m+[m[32m                "url": "https://api.github.com/repos/PHP-CS-Fixer/diff/zipball/78bb099e9c16361126c86ce82ec4405ebab8e756",[m
+[32m+[m[32m                "reference": "78bb099e9c16361126c86ce82ec4405ebab8e756",[m
+[32m+[m[32m                "shasum": ""[m
+[32m+[m[32m            },[m
+[32m+[m[32m            "require": {[m
+[32m+[m[32m                "php": "^5.6 || ^7.0"[m
+[32m+[m[32m            },[m
+[32m+[m[32m            "require-dev": {[m
+[32m+[m[32m                "phpunit/phpunit": "^5.7.23 || ^6.4.3",[m
+[32m+[m[32m                "symfony/process": "^3.3"[m
+[32m+[m[32m            },[m
+[32m+[m[32m            "type": "library",[m
+[32m+[m[32m            "autoload": {[m
+[32m+[m[32m                "classmap": [[m
+[32m+[m[32m                    "src/"[m
+[32m+[m[32m                ][m
+[32m+[m[32m            },[m
+[32m+[m[32m            "notification-url": "https://packagist.org/downloads/",[m
+[32m+[m[32m            "license": [[m
+[32m+[m[32m                "BSD-3-Clause"[m
+[32m+[m[32m            ],[m
+[32m+[m[32m            "authors": [[m
+[32m+[m[32m                {[m
+[32m+[m[32m                    "name": "Kore Nordmann",[m
+[32m+[m[32m                    "email": "mail@kore-nordmann.de"[m
+[32m+[m[32m                },[m
+[32m+[m[32m                {[m
+[32m+[m[32m                    "name": "Sebastian Bergmann",[m
+[32m+[m[32m                    "email": "sebastian@phpunit.de"[m
+[32m+[m[32m                },[m
+[32m+[m[32m                {[m
+[32m+[m[32m                    "name": "SpacePossum"[m
+[32m+[m[32m                }[m
+[32m+[m[32m            ],[m
+[32m+[m[32m            "description": "sebastian/diff v2 backport support for PHP5.6",[m
+[32m+[m[32m            "homepage": "https://github.com/PHP-CS-Fixer",[m
+[32m+[m[32m            "keywords": [[m
+[32m+[m[32m                "diff"[m
+[32m+[m[32m            ],[m
+[32m+[m[32m            "time": "2018-02-15T16:58:55+00:00"[m
+[32m+[m[32m        },[m
+         {[m
+             "name": "phpdocumentor/reflection-common",[m
+             "version": "1.0.1",[m
+[36m@@ -3571,6 +3819,61 @@[m
+             

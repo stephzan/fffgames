@@ -12,6 +12,8 @@
 {% block body %}
 	{% if not is_granted("ROLE_USER_PREMIUM") %}
 		<div id="adds">ADDS</div>
+	{% else %}
+		<div id="adds">NO ADDS</div>
 	{% endif %}
 
 	{% if is_granted("ROLE_USER") %}

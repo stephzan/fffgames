@@ -50,3 +50,7 @@
 .header_brand{
 	font-size: 1.9em; 
 }
+
+.header_user{
+	cursor: pointer;
+}

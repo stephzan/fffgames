@@ -31,7 +31,11 @@
                         {% endblock %}
                     </div>
                     <div id="header_right">
-                        {% block header_right %}{% endblock %}
+                        {% block header_right %}
+                            <ul class="header_list">
+                                <li class="header_user"><img width="50px" src="{{ asset('img/default-user.png') }}"></li>
+                            </ul>
+                        {% endblock %}
                     </div>                   
                 </div>
                 <div class="clear"></div>

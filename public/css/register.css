@@ -7,9 +7,10 @@ input{
 	position: relative;
 	width: 40%;
 	height: 65%;
+	min-height: 500px;
 	background-color: #fff;
 	margin: auto;
-	margin-top:12%;
+	margin-top:8%;
 }
 
 #welcome-message{

@@ -13,7 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 use Symfony\Component\Translation\TranslatorInterface;
 
-class UserType extends AbstractType
+class LoginType extends AbstractType
 {
     public function __construct(TranslatorInterface $translator){
         $this->tr = $translator;
@@ -22,13 +22,8 @@ class UserType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email', EmailType::class, ['label' => $this->tr->trans('Email')])
-            ->add('username', TextType::class, ['label' => $this->tr->trans('Username')])
-            ->add('plainPassword', RepeatedType::class, [
-                'type' => PasswordType::class,
-                'first_options' => ['label' => $this->tr->trans('Password')],
-                'second_options' => ['label' => $this->tr->trans('Repeat Password')],
-            ])
+            ->add('email', EmailType::class, ['label' => $this->tr->trans('Email'), 'attr'=>['id'=>'inputEmail', 'class'=>'form-control']])
+            ->add('password', PasswordType::class, ['label'=>$this->tr->trans('Password'), 'attr'=>['id'=>'inputPassword', 'class'=>'form-control']])
         ;
     }
 

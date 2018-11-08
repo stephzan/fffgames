@@ -21,4 +21,13 @@ class SecurityController extends AbstractController
 
         return $this->render('security/login.html.twig', ['last_username' => $lastUsername, 'error' => $error]);
     }
+
+    /**
+     * @Route("/logout")
+     * @throws \RuntimeException
+     */
+    public function logoutAction()
+    {
+        throw new \RuntimeException('This should never be called directly.');
+    }
 }

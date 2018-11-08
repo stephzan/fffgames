@@ -8,14 +8,17 @@ use Symfony\Component\Routing\Annotation\Route;
 class HomeController extends AbstractController
 {
     /**
-     * @Route("/home", name="home")
+     * @Route("/", name="home")
      */
     public function index()
     {
-        //$this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
+
+        $player = $this->getUser();
 
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',
+            'player' => $player
         ]);
     }
 }

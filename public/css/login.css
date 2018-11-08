@@ -1,3 +1,8 @@
+input{
+	width: 60% !important;
+	margin: auto;
+}
+
 #center-form{
 	position: relative;
 	width: 40%;
@@ -16,6 +21,7 @@
 }
 #login-social{
 	height: 25%;
+	text-align: center;
 }
 
 .login-row{

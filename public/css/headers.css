@@ -1,0 +1,52 @@
+#header_right{
+	position: relative;
+	float: right;
+	width: 30%;
+	min-width: 150px;
+	height: 100%;
+	text-align: right;
+}
+
+#header_right button{
+	position: relative;
+	height: 100%;
+}
+
+#header_left{
+	position: relative;
+	float: left;
+	width: 12%;
+	min-width: 150px;
+	height: 100%;
+	text-align: left;
+}
+
+#header_center{
+	position: relative;
+	float: left;
+	width: 58%;
+	min-width: 150px;
+	height: 100%;
+	text-align: center;
+	font-size: 0.7em;
+	overflow: hidden;
+	white-space: nowrap;
+}
+
+.header_list{
+	position: relative;
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+	height: 100%;
+}
+
+.header_list li{
+	position: relative;
+	height: 100%;
+	display: inline-block;
+}
+
+.header_brand{
+	font-size: 1.9em; 
+}

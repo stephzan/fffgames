@@ -14,7 +14,7 @@
     <div id="welcome-message" class="login-row"></div>
     <div id="login-form" class="login-row">
         {% if error %}
-            <div class="alert alert-danger">{{ error }}</div>
+            <!--<div class="alert alert-danger">{{ error }}</div>-->
         {% endif %}
 
         <form method="post">
@@ -22,11 +22,15 @@
                 <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
             {% endif %}
 
-            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-            <label for="inputEmail" class="sr-only">Email</label>
-            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="Email" required autofocus>
-            <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            <h1 class="h3 mb-3 font-weight-normal">{{ 'Please sign in'|trans }}</h1>
+            <div class="form-group">
+                <label for="inputEmail" class="sr-only">{{ 'Email'|trans }}</label>
+                <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="{{ 'Email'|trans }}" required autofocus>
+            </div>
+            <div class="form-group">
+                <label for="inputPassword" class="sr-only">{{ 'Password'|trans }}</label>
+                <input type="password" name="password" id="inputPassword" class="form-control" placeholder="{{ 'Password'|trans }}" required>
+            </div>
 
             <input type="hidden" name="_csrf_token"
                    value="{{ csrf_token('authenticate') }}"
@@ -38,17 +42,24 @@
 
                 <div class="checkbox mb-3">
                     <label>
-                        <input type="checkbox" name="_remember_me"> Remember me
+                        <input type="checkbox" name="_remember_me"> {{ 'Remember me'|trans }}
                     </label>
                 </div>
             #}
 
             <button class="btn btn-lg btn-primary" type="submit">
-                Sign in
+                {{ 'Sign in'|trans }}
             </button>
         </form>
     </div>
-    <div id="login-social" class="login-row"></div>
+    <div id="login-social" class="login-row">
+        <h1 class="h3 mb-3 font-weight-normal">{{ 'Not registered?'|trans }}</h1>
+        <a href="/register">
+            <button class="btn btn-lg btn-primary" type="">
+                {{ 'Register now'|trans }}
+            </button>
+        </a>
+    </div>
 </div>
 
 {% endblock %}

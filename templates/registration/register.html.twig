@@ -9,6 +9,10 @@
 
 {% endblock %}
 
+{% block header_right %}
+	{% include "registration/header.html.twig" %}
+{% endblock %}
+
 {% block body %}
 <div id="center-form">
 	<div id="welcome-message" class="register-row"></div>
@@ -23,7 +27,7 @@
 		    {{ form_row(form.plainPassword.first) }}
 		    {{ form_row(form.plainPassword.second) }}
 
-		    <button type="submit">Register!</button>
+		    <button class="btn btn-lg btn-primary" type="submit">{{ 'Register!'|trans }}</button>
 		{{ form_end(form) }}
 	</div>
 	<div id="register-social" class="register-row"></div>

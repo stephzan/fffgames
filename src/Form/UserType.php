@@ -10,12 +10,12 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-
 use Symfony\Component\Translation\TranslatorInterface;
 
 class UserType extends AbstractType
 {
-    public function __construct(TranslatorInterface $translator){
+    public function __construct(TranslatorInterface $translator)
+    {
         $this->tr = $translator;
     }
 

@@ -1,9 +1,14 @@
 $(document).ready(function(){	
 	var testAjax = ajaxQuery("test", "tutu", showTestAjax);
 
-	var playerList = ajaxQuery("getPlayerList", "void", loadPlayerList);
+	initPlayerList();
 
 })
+
+function initPlayerList(){
+	var playerList = ajaxQuery("getPlayerList", "void", loadPlayerList);
+	setTimeout("initPlayerList()", 10000);
+}
 
 /* AJAX callback functions */
 showTestAjax = function (result){
@@ -15,10 +20,12 @@ loadPlayerList = function (result){
 	if(pll !== undefined){
 		$("#player_list").empty();
 		$.each(pll, function(){
-			var content = "<li class='border-bottom'>"+this.username+" (Lobby)<br />level: 8 | Points: 20598</li>";
+			var content = "<li class='border-bottom'>"+this.username+" (Lobby)<br />level: "+this.level+" | Points: "+this.score+"</li>";
 			$("#player_list").append(content);
 		})
+
+		$("#info_nbplayer").html(pll.length);//Update info server
 	}
 
-	return true;
+	return true;	
 }

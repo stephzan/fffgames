@@ -24,6 +24,7 @@ class SecurityController extends AbstractController
 
     /**
      * @Route("/logout")
+     *
      * @throws \RuntimeException
      */
     public function logoutAction()

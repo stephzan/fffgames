@@ -6,6 +6,7 @@ use App\Entity\User;
 use App\Helper\LoggerTrait;
 use App\Repository\UserRepositoryInterface;
 use Psr\Log\LoggerInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 final class UserService
 {
@@ -38,5 +39,10 @@ final class UserService
     public function save(User $user)
     {
         return $this->repo->save($user);
+    }
+
+    public function createNew(User $user, UserPasswordEncoderInterface $passwordEncoder)
+    {
+        return $this->repo->createNew($user, $passwordEncoder);
     }
 }

@@ -50,6 +50,16 @@ class User implements UserInterface
      */
     private $online;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Preference", mappedBy="userId", cascade={"persist", "remove"})
+     */
+    private $preference;
+
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\UserProfile", mappedBy="userId", cascade={"persist", "remove"})
+     */
+    private $userProfile;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -153,6 +163,40 @@ class User implements UserInterface
     public function setOnline(bool $online): self
     {
         $this->online = $online;
+
+        return $this;
+    }
+
+    public function getPreference(): ?Preference
+    {
+        return $this->preference;
+    }
+
+    public function setPreference(Preference $preference): self
+    {
+        $this->preference = $preference;
+
+        // set the owning side of the relation if necessary
+        if ($this !== $preference->getUserId()) {
+            $preference->setUserId($this);
+        }
+
+        return $this;
+    }
+
+    public function getUserProfile(): ?UserProfile
+    {
+        return $this->userProfile;
+    }
+
+    public function setUserProfile(UserProfile $userProfile): self
+    {
+        $this->userProfile = $userProfile;
+
+        // set the owning side of the relation if necessary
+        if ($this !== $userProfile->getUserId()) {
+            $userProfile->setUserId($this);
+        }
 
         return $this;
     }

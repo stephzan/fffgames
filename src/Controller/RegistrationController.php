@@ -27,13 +27,7 @@ class RegistrationController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             //Check if exists
             if (!$userRep->exists($user)) {
-                // 3) Encode the password (you could also do this via Doctrine listener)
-                $password = $passwordEncoder->encodePassword($user, $user->getPlainPassword());
-                $user->setPassword($password);
-                $user->setRoles(['ROLE_USER']);
-
-                // 4) save the User!
-                $userRep->save($user);
+                $userRep->createNew($user, $passwordEncoder);
 
                 $this->addFlash(
                     'notice',

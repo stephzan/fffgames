@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Service\UserService;
-
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,71 +11,89 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 
 class AjaxController extends AbstractController
 {
-	private $errors;
-	protected $action;
-	protected $data;
+    private $errors;
+    protected $action;
+    protected $data;
 
     /**
      * @Route("/ajax", name="ajaxqueries", methods={"POST"})
      */
     public function index(Request $req, UserService $userRep)
     {
-    	if($req->isXMLHttpRequest()){
-    		if(!$this->checkQuery($req)){
-    			$err = implode(" | ", $this->errors);
-    			return new Response($err, 400);
-    		}
+        if ($req->isXMLHttpRequest()) {
+            if (!$this->checkQuery($req)) {
+                $err = implode(' | ', $this->errors);
 
-    		switch($this->action){
-    			case "getPlayerList":
-    				return $this->getPlayerList($userRep);
-    				break;
-    			case "test":
-    				return $this->test();
-    				break;
-    		}
-		
+                return new Response($err, 400);
+            }
+
+            switch ($this->action) {
+                case 'getPlayerList':
+                    return $this->getPlayerList($userRep);
+                    break;
+                case 'test':
+                    return $this->test();
+                    break;
+            }
         }
 
-        return new Response("Not AJAX", 400);
+        return new Response('Not AJAX', 400);
     }
 
-    public function getPlayerList(UserService $userRep){
-    	$playerList = $userRep->findBy(['online'=>1], ['username'=>'ASC']);
+    public function getPlayerList(UserService $userRep)
+    {
+        $playerList = $userRep->findBy(['online' => 1], ['username' => 'ASC']);
 
-    	$return = array();
+        $return = [];
 
-    	foreach($playerList as $player){
-    		$tmp = ["username"=>$player->getUsername()];
+        foreach ($playerList as $player) {
+            $level = 1;
+            $score = 0;
+            //var_dump($player->getUserProfile()->getLevel());
+            //$level = $player->getUserProfile()->getLevel();
 
-    		$return[] = $tmp;
-    	}
+            //$prof = $UserProfileService->findOneBy(array("userId"=>$player->getId()));
 
-    	return new JsonResponse(['data'=>$return]);
+            if (!is_null($player->getUserProfile())) {
+                $level = $player->getUserProfile()->getLevel();
+                $score = $player->getUserProfile()->getScore();
+            } else {
+            }
+
+            $tmp = ['username' => $player->getUsername(), 'level' => $level, 'score' => $score];
+
+            //var_dump($prof);
+
+            $return[] = $tmp;
+        }
+
+        return new JsonResponse(['data' => $return]);
     }
 
-    private function checkQuery(Request $req){
-    	$params = json_decode($req->request->get("params"));
-		if(empty($params)){
-			$this->errors[] = "No parameters given";
-		}
+    private function checkQuery(Request $req)
+    {
+        $params = json_decode($req->request->get('params'));
+        if (empty($params)) {
+            $this->errors[] = 'No parameters given';
+        }
 
-		if( (!$this->action = $params->action)|| (empty($params->action)) ){
-			$this->errors[] = "No action given";
-		}
-		
-		if( (!$this->data = $params->data)|| (empty($params->data)) ){
-			$this->errors[] = "No data given";
-		}
+        if ((!$this->action = $params->action) || (empty($params->action))) {
+            $this->errors[] = 'No action given';
+        }
 
-		if(!method_exists($this, $this->action)){
-			$this->errors[] = "Request method does not exists";
-		}
+        if ((!$this->data = $params->data) || (empty($params->data))) {
+            $this->errors[] = 'No data given';
+        }
 
-		return (!empty($this->errors)) ? false : true;		
+        if (!method_exists($this, $this->action)) {
+            $this->errors[] = 'Request method does not exists';
+        }
+
+        return (!empty($this->errors)) ? false : true;
     }
 
-    public function test(){
-    	return new JsonResponse(["data"=>"OK"]);
+    public function test()
+    {
+        return new JsonResponse(['data' => 'OK']);
     }
 }

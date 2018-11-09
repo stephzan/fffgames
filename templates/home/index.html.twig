@@ -9,6 +9,13 @@
 
 {% endblock %}	
 
+{#% block header_center %}
+    {{ "INFO GAME"|trans  }}: 
+    {{ nbOnlinePlayers }} {% transchoice nbOnlinePlayers %}{0} player|{1} player|]1,Inf[ players{% endtranschoice %}
+    {{ nbRooms }} {% transchoice nbRooms %}{0}room|{1}room|]1,Inf[rooms{% endtranschoice %}
+    {{ nbGames }} {% transchoice nbGames %}{0}game|{1}game|]1,Inf[games{% endtranschoice %}
+{% endblock %#}
+
 {% block body %}
 	{% if not is_granted("ROLE_USER_PREMIUM") %}
 		<div id="adds">ADDS</div>
@@ -21,28 +28,30 @@
 	{% endif %}
 
 	{% if is_granted("ROLE_USER") %}
-		<div id="playerlist">
-			<ul>
-				<li style="border-bottom: 1px solid black;">Joh-Mickael Doe (Lobby)<br />
-					Level 8 | Global 1.258.963
-				</li>
-				
-			</ul>
-		</div>
-	{% endif %}
-
-	{% if is_granted("ROLE_USER") %}
-		<div id="chat">
-			<div id="chat_screen">
-				<ul>
-					<li>Chat enabled...</li>
+		<div id="community">
+			<div id="playerlist">
+				<ul id="player_list">
+					<li>Loading List...</li>
 				</ul>
 			</div>
-			<div id="chat_field">
-				<textarea id="chat_textarea" placeholder="Text here..."></textarea>
+
+			<div id="chat">
+				<div id="chat_screen">
+					<ul id="chat_messages">
+						<li class="text-danger">Chat disabled...</li>
+					</ul>
+				</div>
+				<div id="chat_field">
+					<textarea disabled id="chat_textarea" placeholder="Text here..."></textarea>
+				</div>
 			</div>
 		</div>
 	{% endif %}
 
 	<div class="clear"></div>
+{% endblock %}
+
+{% block javascripts %}
+	{{ parent() }}
+	<script type="text/javascript" src="{{ asset('js/content.js') }}"></script>
 {% endblock %}

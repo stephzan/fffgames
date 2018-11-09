@@ -1,68 +1,63 @@
-ul{
-	list-style-type: none; margin: 0px; padding: 5px;
-}
-
 #adds{
 	position: relative;
 	float: left;
-	width: 12%;
-	min-width: 150px;
-	height: 94%;
-	text-align: center;
+	width: 10%;
+	height: 95%;
 	background-color: lightgreen;
 }
 
 #rooms{
 	position: relative;
 	float: left;
-	width: 58%;
-	min-width: 600px;
-	height: 94%;
-	text-align: center;
+	width: 60%;
+	height: 95%;
 	background-color: lightgrey;
+}
+
+#community{
+	position: relative;
+	float: left;
+	width: 30%;
+	height: 95%;
+	background-color: #000;
 }
 
 #playerlist{
 	position: relative;
-	float: left;
-	width: 30%;
-	min-width: 200px;
-	height: 47%;
-	text-align: left;
+	width: 100%;
+	height: 50%;
+	padding: 1%;
+	background-color: gold;
 	overflow-y: scroll;
-	background-color: lightblue;
 }
 
 #chat{
 	position: relative;
-	float: left;
-	width: 30%;
-	min-width: 200px;
-	height: 47%;
-	text-align: center;
+	width: 100%;
+	height: 50%;
+	background-color: #000;
 }
 
 #chat_screen{
 	position: relative;
 	width: 100%;
-	min-width: 200px;
-	height: 70%;
-	margin: auto;
-	margin-top: 2%;
-	margin-bottom: 3.5%;	
-	text-align: left;
+	height: 73%;
+	margin-bottom: 1%;
+	margin-top: 1%;
 	background-color: #fff;
+	padding: 1%;
 	overflow-y: scroll;
+}
+
+#chat_screen ul, #playerlist ul{
+	margin: 0px;
+	padding: 0px;
 }
 
 #chat_field{
 	position: relative;
 	width: 100%;
-	min-width: 200px;
 	height: 25%;
-	margin: auto;
-	text-align: left;
-	background-color: #fff;
 }
 
 #chat_textarea{

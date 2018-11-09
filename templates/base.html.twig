@@ -13,32 +13,36 @@
         {% endblock %}
     </head>
     <body>
-    	<div id="main-container">
+        <!-- Store some data for JS -->
+            <input type="hidden" id="js_ajax_url" value="{{ path('ajaxqueries') }}" />
+        <!-- END -->
+
+    	<div id="main-container" class="bg-dark">
             {% block header %}
-                <div id="header">
-                    <div id="header_left">
-                        {% block header_left %}
-                            <ul class="header_list">
-                                <li class="header_brand">FFFGAMES</li>      
-                            </ul>
-                        {% endblock %}
-                    </div>
-                    <div id="header_center">
-                        {% block header_center %}
-                            <ul class="header_list">
-                                <li class="header_brand">INFO GAME: 324 players in 187 rooms for 23 games</li>      
-                            </ul>
-                        {% endblock %}
-                    </div>
-                    <div id="header_right">
-                        {% block header_right %}
-                            <ul class="header_list">
-                                <li class="header_user"><img width="50px" src="{{ asset('img/default-user.png') }}"></li>
-                            </ul>
-                        {% endblock %}
-                    </div>                   
+                <div class="d-flex flex-row bg-dark text-light">
+                  <div class="p-3" style="width: 10%;">
+                    {% block header_left %}
+                        FFFGAMES
+                    {% endblock %}
+                  </div>
+                  <div class="mr-auto p-3">
+                    {% block header_center %}
+                        INFO GAME: 324 players in 187 rooms for 23 games
+                    {% endblock %}
+                  </div>
+                  <div class="p-2">
+                    {% block header_right %}
+                        <ul>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" id="dropdown_user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true"><img width="25px" src="{{ asset('img/default-user.png') }}"></a>
+                                <div class="dropdown-menu" aria-labelledby="dropdown_user">
+                                  <a class="dropdown-item" href="/logout">{{ 'Log out'|trans }}</a>
+                                </div>
+                            </li>
+                        </ul>
+                    {% endblock %}
+                  </div>
                 </div>
-                <div class="clear"></div>
         	{% endblock %}
 
             {% block body %}{% endblock %}
@@ -46,7 +50,13 @@
             <div id="footer">{% block footer %}{% endblock %}</div>
     	</div>
         {% block javascripts %}
+            <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+            <script type="text/javascript" src="{{ asset('bootstrap/js/popper.js') }}"></script>
         	<script type="text/javascript" src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('js/ajaxqueries.js') }}"></script>
+            <script type="text/javascript">
+                $('.dropdown-toggle').dropdown();
+            </script>
         {% endblock %}
     </body>
 </html>

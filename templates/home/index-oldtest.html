@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello {{ controller_name }}!{% endblock %}
+
+{% block stylesheets %}
+	{{ parent() }}
+
+	<link rel="stylesheet" href="{{ asset('css/home.css') }}" />
+
+{% endblock %}	
+
+{% block body %}
+	{% if not is_granted("ROLE_USER_PREMIUM") %}
+		<div id="adds">ADDS</div>
+	{% else %}
+		<div id="adds">NO ADDS</div>
+	{% endif %}
+
+	{% if is_granted("ROLE_USER") %}
+		<div id="rooms">ROOMS</div>
+	{% endif %}
+
+	{% if is_granted("ROLE_USER") %}
+		<div id="playerlist">
+			<ul>
+				<li style="border-bottom: 1px solid black;">Joh-Mickael Doe (Lobby)<br />
+					Level 8 | Global 1.258.963
+				</li>
+				
+			</ul>
+		</div>
+	{% endif %}
+
+	{% if is_granted("ROLE_USER") %}
+		<div id="chat">
+			<div id="chat_screen">
+				<ul>
+					<li>Chat enabled...</li>
+				</ul>
+			</div>
+			<div id="chat_field">
+				<textarea id="chat_textarea" placeholder="Text here..."></textarea>
+			</div>
+		</div>
+	{% endif %}
+
+	<div class="clear"></div>
+{% endblock %}

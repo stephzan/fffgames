@@ -25,6 +25,11 @@ final class UserService
         return $this->repo->find($id);
     }
 
+    public function findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+    {
+        return $this->repo->findBy($criteria, $orderBy = null, $limit = null, $offset = null);
+    }
+
     public function exists(User $user): bool
     {
         return $this->repo->exists($user);
